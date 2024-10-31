@@ -1,0 +1,59 @@
+﻿@model IEnumerable<TranDangDuong_2210900097.Models.SanPham>
+
+@{
+    ViewBag.Title = "Index";
+    <link href="~/Content/CustomStyle/SanPham.css" rel="stylesheet" type="text/css"/>
+}
+
+<h2>Sản Phẩm trưng bày</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TenSanPham)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoLuong)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MoTa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DanhMuc.TenDanhMuc)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenSanPham)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoLuong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MoTa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DanhMuc.TenDanhMuc)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MaSanPham }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MaSanPham }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaSanPham })
+            </td>
+        </tr>
+    }
+
+</table>
