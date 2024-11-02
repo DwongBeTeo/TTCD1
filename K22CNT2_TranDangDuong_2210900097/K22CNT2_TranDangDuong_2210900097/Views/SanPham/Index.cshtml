@@ -1,0 +1,28 @@
+﻿@model IEnumerable<K22CNT2_TranDangDuong_2210900097.Models.SanPham>
+
+@{
+    ViewBag.Title = "Index";
+}
+<header class="banner">
+    <h1>Chào mừng đến với Cửa hàng Điện Thoại</h1>
+    <p>Khám phá những sản phẩm điện thoại mới nhất với giá ưu đãi</p>
+</header>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="product-container">
+    @foreach (var item in Model)
+    {
+        <div class="product-card">
+            <h3>@Html.DisplayFor(modelItem => item.TenSanPham)</h3>
+            <p>Giá: @Html.DisplayFor(modelItem => item.Gia)</p>
+            <p> @Html.DisplayFor(modelItem => item.MoTa)</p>
+            <div>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MaSanPham }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MaSanPham }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaSanPham })
+            </div>
+        </div>
+    }
+
+</div>
